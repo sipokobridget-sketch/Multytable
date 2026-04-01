@@ -5,5 +5,5 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.Multytable" parent="Base.Theme.Multytable" />
+    <style name="Theme.Multytable" parent="Theme.Design.NoActionBar" />
 </resources>
