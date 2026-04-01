@@ -22,10 +22,11 @@ class MainActivity : AppCompatActivity() {
         multiplication.setOnClickListener {
             /*Created an intent to switch between pages(switching from main activity to table display activity)*/
             val intent = Intent(this, TableDisplay::class.java)
+            // transferring data for the number to be displayed in the table
+            intent.putExtra("tableNumber", numInput.text.toString())
             //start activity
             startActivity(intent)
         }
-
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
