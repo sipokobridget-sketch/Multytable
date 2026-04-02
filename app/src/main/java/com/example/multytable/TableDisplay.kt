@@ -18,8 +18,13 @@ class TableDisplay : AppCompatActivity() {
         //getting the number entered by user as a string
         val tableString: String? = bundle?.getString("tableNumber")
         //converting the string to an integer
-        val tableNumber = tableString?.toInt()
+        val tableNumber = tableString!!.toInt()
         val multiplyTable = findViewById<TextView>(R.id.tableDisplaytxt)
+        val timeDisplay: String = "$tableNumber x table\n\n"
+
+        //displaying the multiplication table
+        multiplyTable.text ="$tableNumber x table\n\n"
+
 
 
 
