@@ -20,12 +20,25 @@ class TableDisplay : AppCompatActivity() {
         //converting the string to an integer
         val tableNumber = tableString!!.toInt()
         val multiplyTable = findViewById<TextView>(R.id.tableDisplaytxt)
-        val timeDisplay: String = "$tableNumber x table\n\n"
+        var timeDisplay: String = "$tableNumber x table\n\n"
+
+        //Creating counter for while loop
+        var count = 1
 
         //displaying the multiplication table
         multiplyTable.text ="$tableNumber x table\n\n"
 
-
+        while (count <= 10) {
+            //example:user enters 5 and count is 1 so = 5*1 = 5
+            val answer = tableNumber * count
+            /*display as:
+            5 x tables
+            5x1=5
+             */
+            timeDisplay += "$tableNumber x$count =$(answe)\n"
+            //increasing the count
+            count++
+        }
 
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
