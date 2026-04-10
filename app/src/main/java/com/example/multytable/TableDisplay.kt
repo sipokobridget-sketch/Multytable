@@ -13,33 +13,28 @@ class TableDisplay : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_table_display)
 
-        //assigning data from my main page to variables
+        // Assigning data from my main page to variables
         val bundle: Bundle? = intent.extras
-        //getting the number entered by user as a string
+        // Getting the number entered by user as a string
         val tableString: String? = bundle?.getString("tableNumber")
-        //converting the string to an integer
-        val tableNumber = tableString!!.toInt()
+        // Converting the string to an integer, default to 0 if null or invalid
+        val tableNumber = tableString?.toIntOrNull() ?: 0
+        
         val multiplyTable = findViewById<TextView>(R.id.tableDisplaytxt)
-        var timeDisplay: String = "$tableNumber x table\n\n"
+        var timeDisplay: String = "$tableNumber Times Table\n\n"
 
-        //Creating counter for while loop
-        var count = 1
+        // Creating counter for while loop
+        var counter = 1
 
-        //displaying the multiplication table
-        multiplyTable.text ="$tableNumber x table\n\n"
-
-        while (count <= 10) {
-            //example:user enters 5 and count is 1 so = 5*1 = 5
-            val answer = tableNumber * count
-            /*display as:
-            5 x tables
-            5x1=5
-             */
-            timeDisplay += "$tableNumber x$count =$(answe)\n"
-            //increasing the count
-            count++
+        while (counter <= 20) {
+            val answer = tableNumber * counter
+            // Appending each line to the timeDisplay string
+            timeDisplay += "$tableNumber x $counter = $answer\n"
+            counter++
         }
 
+        // Displaying the full multiplication table after the loop finishes
+        multiplyTable.text = timeDisplay
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
